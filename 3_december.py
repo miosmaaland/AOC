@@ -34,3 +34,5 @@ for k, v in gir_numre.items():
     if len(v) == 2:
         totalt += v[0] * v[1]
 print(totalt)
+
+
