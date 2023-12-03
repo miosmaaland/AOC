@@ -16,15 +16,15 @@ def vurder_tallnaboer(start_y, start_x, end_y, end_x, num):
                     return True
     return False
 
-tall_mønster = re.compile('\d+')
+tall_mønster = re.compile('\d+') # finner tall
 
-with open('dec3') as fil:
-    for linje in fil.readlines():
-        brett.append(linje.strip())
+with open('dec3') as fil:  # åpner filen
+    for linje in fil.readlines(): # leser linje for linje
+        brett.append(linje.strip()) # legger til linjen i brettet
 
 for rad_num in range(len(brett)):
     for match in re.finditer(tall_mønster, brett[rad_num]):
-        if vurder_tallnaboer(rad_num-1, match.start()-1, rad_num+1, match.end(), int(match.group(0))):
+        if vurder_tallnaboer(rad_num-1, match.start()-1, rad_num+1, match.end(), int(match.group(0))): 
             totalt += int(match.group(0))
 
 print(totalt)
@@ -32,7 +32,7 @@ print(totalt)
 totalt = 0
 for k, v in gir_numre.items():
     if len(v) == 2:
-        totalt += v[0] * v[1]
+        totalt += v[0] * v[1] #Ganger sammen de to tallene som blir funnet i listen
 print(totalt)
 
 
